@@ -10,7 +10,7 @@ feature 'Home Page', %q{
 	scenario "Home page" do
 		visit "/"
 		page.should have_link('Sign In')
-		page.should have_selector('title', :content => "Loccasions")
-		page.should have_content('What is Loccasions?')
+		page.should have_selector('title', :content => "MouvMan")
+		page.should have_content('What is MouvMan?')
 	end
 end

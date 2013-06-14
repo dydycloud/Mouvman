@@ -5,3 +5,5 @@
 require File.expand_path('../config/application', __FILE__)
 
 Mouvman::Application.load_tasks
+Rake::Task[:default].prerequisites.clear
+task :default => [:spec]
