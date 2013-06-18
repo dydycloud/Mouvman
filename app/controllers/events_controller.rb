@@ -6,6 +6,10 @@ class EventsController < ApplicationController
     @events = current_user.events
   end
 
+  def show
+    @event = current_user.events.find(params[:id])
+  end
+
   def create
 	  event = current_user.events.build(params[:event])
 	  event.save
@@ -24,9 +28,10 @@ class EventsController < ApplicationController
   	event.save
   	redirect_to events_path
   end
+  
   def destroy
-	event = current_user.events.find(params[:id])
-	event.destroy
-	redirect_to events_path
+  	event = current_user.events.find(params[:id])
+  	event.destroy
+  	redirect_to events_path
   end
 end

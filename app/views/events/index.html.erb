@@ -9,6 +9,7 @@
       <span class="del_form">
         <%= button_to "x", event, :confirm => "Are you sure?", :method => :delete %>
       </span>
+      <span><%= link_to 'Show Details', event_path(event) %></span>
     </h3>
   </li>
 <% end %>
