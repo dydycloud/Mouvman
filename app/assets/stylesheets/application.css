@@ -5,3 +5,13 @@
  *= require_self
  *= require_tree . 
 */
+.home_greating{
+	color: #FFFFFF;
+	font-style: bold;
+}
+.new_event label, input[type='text'] {
+  display:inline;
+}
+input#event_description {
+  width: 500px;
+}

@@ -5,4 +5,9 @@ FactoryGirl.define do
     email 'testy@test.com'
     password 'password'
   end
+  factory :event do
+  	name "Test Event"
+  	description "Description"
+  	user
+  end
 end

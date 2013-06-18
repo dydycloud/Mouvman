@@ -30,7 +30,23 @@
   		    <div class="nav-collapse">
   		      <ul class="nav">
   		        <li class="active"><a href="/">home</a></li>
-              <li class=""><%= link_to "Sign In", new_user_session_path %></li>
+              <% if user_signed_in? %>
+                <li class="home_greating">
+                  <a href="">
+                    Hello <%= current_user.name %> !!
+                  </a>
+                </li>
+                <li class="">
+                  <%= link_to "My Events", user_root_path %>
+                </li>
+                <li class="">
+                  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+                </li>
+              <% else %>
+                <li class="">
+                  <%= link_to "Sign In", new_user_session_path %>
+                </li>
+              <% end %>
   		      </ul>
   		    </div>
       	</div>

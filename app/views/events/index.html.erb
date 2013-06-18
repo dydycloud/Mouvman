@@ -1,0 +1,31 @@
+<h1>My Events</h1>
+<ol>
+<% for event in @events %>
+  <li class="<% if @event == event%>selected<% end %>">
+    <h3><%= link_to event.name, edit_event_path(event) %> 
+      <span>
+        <small><%= event.description %></small>
+      </span>
+      <span class="del_form">
+        <%= button_to "x", event, :confirm => "Are you sure?", :method => :delete %>
+      </span>
+    </h3>
+  </li>
+<% end %>
+</ol>
+<%= form_for @event || Event.new do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!--
+<%= link_to 'New Event', new_event_path %>
+-->
