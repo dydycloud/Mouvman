@@ -1,20 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @event.user %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<h2><%= @event.name %></h2>
+<%= @event.description %>
+<div id="map"></div>
+<ul id="occasions">
+  <% for occasion in @event.occasions %>
+    <li>
+      <%=render :partial => "occasions/occasion", :locals => {:occasion => occasion} %>
+    </li>
+  <% end %>
+</ul>
+<div class="edit_occasion">
+  <%= form_for [@event, current_user.events.find(@event.id).occasions.build()] do |f| %>
+    <div class="coordinate_input">
+      <%= f.text_field :latitude %>
+    </div>
+    <div class="coordinate_input">
+      <%= f.text_field :longitude %>
+    </div>
+    <div class="date_field">
+      <%= f.text_field :occurred_at %>
+    </div>
+    <div class="note_field">
+      <%= f.label :note %>
+      <%= f.text_area :note %>
+    </div>
+      <%= f.submit "Add" %>
+  <% end %>
+</div>

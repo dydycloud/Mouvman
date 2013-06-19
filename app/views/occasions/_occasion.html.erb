@@ -1,0 +1,9 @@
+<span class="del_form">
+	<%= button_to "X", [occasion.event,occasion], :confirm => "Are you sure?", :method => :delete %>
+</span>
+<span class="occasion_name">
+	<%= link_to occasion.occurred_at.to_s(:short), edit_event_occasion_path(@event, occasion) %>
+</span>
+<span class="occasion_note">
+	<%= occasion.note %>
+</span>

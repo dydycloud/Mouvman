@@ -43,7 +43,6 @@ Spork.prefork do
     end
     config.before(:each) do
       DatabaseCleaner.clean
-      ActiveSupport::Dependencies.clear
     end
   end
 
@@ -51,7 +50,12 @@ Spork.prefork do
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
+  ActiveSupport::Dependencies.clear
+  # Reload our factories
+  FactoryGirl.factories.clear
+  Dir[Rails.root.join("spec/factories.rb")].each{|f| load f}
+  # Reload routes
+  Mouvman::Application.reload_routes!
 end
 
 # --- Instructions ---

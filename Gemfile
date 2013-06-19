@@ -4,8 +4,10 @@ gem 'rails', '3.1.0'
 gem 'devise', "~> 1.4.2"
 gem 'mongoid', "~> 2.2.0"
 gem 'mongoid_spacial', "~> 0.2.13"
+gem 'haml-rails', '~> 0.3.4'
 gem 'bson_ext', '~> 1.9.0'
 gem 'rails-backbone', "~> 0.5.3"
+gem 'inherited_resources', "~> 1.3.0"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -34,5 +36,6 @@ group :test, :development do
   gem 'spork'
   gem 'guard-rspec', '~> 0.4.5'
   gem 'guard-spork', '~> 0.2.1'
+  gem 'foreman'
 end
 
